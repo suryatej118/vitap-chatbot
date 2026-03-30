@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "places": [
+    {
+      "place_id": "UNIVERSITY_MAIN_GATE",
+      "name": "University Main Gate",
+      "aliases": ["Main Gate", "Gate"],
+      "category": "other",
+      "location": { "block": "", "floor": null, "room": null, "landmark": "Campus entrance" },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+
+    {
+      "place_id": "AB1",
+      "name": "AB1 (Academic Block-1)",
+      "aliases": ["Academic Block 1", "AB-1"],
+      "category": "academic",
+      "location": { "block": "AB1", "floor": null, "room": null, "landmark": null },
+      "hours": null,
+      "notes": "Building-level landmark",
+      "is_verified": true
+    },
+    {
+      "place_id": "AB2",
+      "name": "AB2 (Academic Block-2)",
+      "aliases": ["Academic Block 2", "AB-2"],
+      "category": "academic",
+      "location": { "block": "AB2", "floor": null, "room": null, "landmark": null },
+      "hours": null,
+      "notes": "Building-level landmark",
+      "is_verified": true
+    },
+    {
+      "place_id": "CB",
+      "name": "CB (Central Block)",
+      "aliases": ["Central Block"],
+      "category": "academic",
+      "location": { "block": "CB", "floor": null, "room": null, "landmark": null },
+      "hours": null,
+      "notes": "Building-level landmark",
+      "is_verified": true
+    },
+
+    {
+      "place_id": "LIBRARY",
+      "name": "Library",
+      "aliases": ["Central Library", "Library AB1"],
+      "category": "academic",
+      "location": { "block": "AB1", "floor": 2, "room": null, "landmark": "Inside AB1" },
+      "hours": null,
+      "notes": "Room number not provided",
+      "is_verified": true
+    },
+
+    {
+      "place_id": "COE_OFFICE",
+      "name": "COE Office (Controller of Examinations)",
+      "aliases": ["COE", "Controller of Examinations"],
+      "category": "admin_services",
+      "location": { "block": "AB1", "floor": 2, "room": "229", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "DEAN_OFFICE",
+      "name": "Dean Office",
+      "aliases": ["Dean's Office"],
+      "category": "admin_services",
+      "location": { "block": "AB2", "floor": 0, "room": "G23", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "LOST_AND_FOUND_STUDENT_RECORDS",
+      "name": "Lost and Found / Student Records",
+      "aliases": ["Lost and Found", "Student Records"],
+      "category": "admin_services",
+      "location": { "block": "AB1", "floor": 3, "room": "321", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "ADMISSIONS_OFFICE",
+      "name": "Admissions Office",
+      "aliases": ["Admissions"],
+      "category": "admin_services",
+      "location": { "block": "AB1", "floor": 0, "room": "G31", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "ACCOUNTS_OFFICE",
+      "name": "Accounts Office",
+      "aliases": ["Accounts"],
+      "category": "admin_services",
+      "location": { "block": "CB", "floor": 0, "room": "G01", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "TRANSPORT_HR_OFFICE",
+      "name": "Transport Department / HR Office",
+      "aliases": ["Transport Department", "HR Office", "Transport", "HR"],
+      "category": "admin_services",
+      "location": { "block": "CB", "floor": 0, "room": "G19", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "STUDENT_WELFARE",
+      "name": "Student Welfare",
+      "aliases": ["Welfare"],
+      "category": "admin_services",
+      "location": { "block": "CB", "floor": 3, "room": "304", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "POST_OFFICE",
+      "name": "Post Office",
+      "aliases": ["Post"],
+      "category": "admin_services",
+      "location": { "block": "AB1", "floor": 0, "room": "G05", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "BANK",
+      "name": "Bank",
+      "aliases": [],
+      "category": "admin_services",
+      "location": { "block": "AB2", "floor": 0, "room": "G15", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "MEDICAL_ROOM",
+      "name": "Medical Room",
+      "aliases": ["Medical", "Clinic", "Health Center", "Health Centre"],
+      "category": "admin_services",
+      "location": { "block": "AB1", "floor": 0, "room": "G21", "landmark": null },
+      "hours": { "tz": "Asia/Kolkata", "type": "always_open" },
+      "notes": "24/7",
+      "is_verified": true
+    },
+
+    {
+      "place_id": "CAFETERIA_AB1",
+      "name": "Cafeteria (AB1)",
+      "aliases": ["Canteen", "Cafeteria"],
+      "category": "food",
+      "location": { "block": "AB1", "floor": 0, "room": "G25", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "ROCK_PLAZA",
+      "name": "Rock Plaza (Food Court-1)",
+      "aliases": ["Rock Plaza", "Food Court 1", "Food Court-1"],
+      "category": "food",
+      "location": { "block": "", "floor": null, "room": null, "landmark": "Opposite AB2" },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "FOOD_STREET",
+      "name": "Food Street (Food Court-2)",
+      "aliases": ["Food Street", "Food Court 2", "Food Court-2"],
+      "category": "food",
+      "location": { "block": "", "floor": null, "room": null, "landmark": "Behind CB" },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+
+    {
+      "place_id": "SAC",
+      "name": "SAC (Student Activity Centre)",
+      "aliases": ["Student Activity Centre", "Student Activity Center"],
+      "category": "other",
+      "location": { "block": "", "floor": null, "room": null, "landmark": "Above Rock Plaza" },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "VITRINA_GUEST_HOUSE",
+      "name": "VITRINA (Guest House)",
+      "aliases": ["Vitrina", "Guest House"],
+      "category": "other",
+      "location": { "block": "", "floor": null, "room": null, "landmark": "Opposite AB2 / beside Rock Plaza" },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+
+    {
+      "place_id": "NEWTON_HALL",
+      "name": "Newton Hall",
+      "aliases": [],
+      "category": "academic",
+      "location": { "block": "AB1", "floor": 4, "room": "401", "landmark": null },
+      "hours": null,
+      "notes": null,
+      "is_verified": true
+    },
+    {
+      "place_id": "AUDITORIUM",
+      "name": "Auditorium",
+      "aliases": [],
+      "category": "academic",
+      "location": { "block": "AB2", "floor": 3, "room": null, "landmark": null },
+      "hours": null,
+      "notes": "Room number not provided",
+      "is_verified": true
+    },
+
+    { "place_id": "ATM_AB1", "name": "ATM (AB1)", "aliases": ["AB1 ATM"], "category": "other",
+      "location": { "block": "AB1", "floor": 0, "room": null, "landmark": "To the right" }, "hours": null, "notes": null, "is_verified": true },
+    { "place_id": "ATM_AB2", "name": "ATM (AB2)", "aliases": ["AB2 ATM"], "category": "other",
+      "location": { "block": "AB2", "floor": 0, "room": null, "landmark": "Beside Bank" }, "hours": null, "notes": null, "is_verified": true },
+    { "place_id": "ATM_CB", "name": "ATM (CB)", "aliases": ["CB ATM"], "category": "other",
+      "location": { "block": "CB", "floor": 0, "room": null, "landmark": "Near the right exit" }, "hours": null, "notes": null, "is_verified": true },
+
+    { "place_id": "MH_1", "name": "MH-1", "aliases": ["Men's Hostel 1"], "category": "hostel",
+      "location": { "block": "", "floor": null, "room": null, "landmark": null }, "hours": null, "notes": "Men’s hostel", "is_verified": true },
+    { "place_id": "MH_2", "name": "MH-2", "aliases": ["Men's Hostel 2"], "category": "hostel",
+      "location": { "block": "", "floor": null, "room": null, "landmark": null }, "hours": null, "notes": "Men’s hostel", "is_verified": true },
+    { "place_id": "MH_3", "name": "MH-3", "aliases": ["Men's Hostel 3"], "category": "hostel",
+      "location": { "block": "", "floor": null, "room": null, "landmark": null }, "hours": null, "notes": "Men’s hostel", "is_verified": true },
+    { "place_id": "MH_4", "name": "MH-4", "aliases": ["Men's Hostel 4"], "category": "hostel",
+      "location": { "block": "", "floor": null, "room": null, "landmark": null }, "hours": null, "notes": "Men’s hostel", "is_verified": true },
+    { "place_id": "MH_5", "name": "MH-5", "aliases": ["Men's Hostel 5"], "category": "hostel",
+      "location": { "block": "", "floor": null, "room": null, "landmark": null }, "hours": null, "notes": "Men’s hostel", "is_verified": true },
+    { "place_id": "MH_6", "name": "MH-6", "aliases": ["Men's Hostel 6"], "category": "hostel",
+      "location": { "block": "", "floor": null, "room": null, "landmark": null }, "hours": null, "notes": "Men’s hostel", "is_verified": true },
+
+    { "place_id": "LH_1", "name": "LH-1", "aliases": ["Ladies Hostel 1"], "category": "hostel",
+      "location": { "block": "", "floor": null, "room": null, "landmark": null }, "hours": null, "notes": "Ladies hostel", "is_verified": true },
+    { "place_id": "LH_2", "name": "LH-2", "aliases": ["Ladies Hostel 2"], "category": "hostel",
+      "location": { "block": "", "floor": null, "room": null, "landmark": null }, "hours": null, "notes": "Ladies hostel", "is_verified": true },
+    { "place_id": "LH_3", "name": "LH-3", "aliases": ["Ladies Hostel 3"], "category": "hostel",
+      "location": { "block": "", "floor": null, "room": null, "landmark": null }, "hours": null, "notes": "Ladies hostel", "is_verified": true }
+  ]
+}
