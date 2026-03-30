@@ -19,8 +19,16 @@ export function isOpenNow(hours: Hours | null, now = new Date()): OpenNowResult 
       const start = parseHHMMToMinutes(w.start);
       const end = parseHHMMToMinutes(w.end);
       if (start === null || end === null) continue;
-      if (minutesSinceMidnight >= start && minutesSinceMidnight < end) {
-        return { known: true, status: "open" };
+      // if end > start: normal same-day window
+      // if end < start: window crosses midnight (e.g., 22:00–02:00)
+      if (end > start) {
+        if (minutesSinceMidnight >= start && minutesSinceMidnight < end) {
+          return { known: true, status: "open" };
+        }
+      } else if (end < start) {
+        if (minutesSinceMidnight >= start || minutesSinceMidnight < end) {
+          return { known: true, status: "open" };
+        }
       }
     }
     return { known: true, status: "closed" };
