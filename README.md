@@ -1,5 +1,3 @@
-# vitap-chatbot
-
 # VIT-AP Campus Navigator
 
 A structured, maintainable dataset for campus locations and services at **VIT‑AP**.  
