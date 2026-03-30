@@ -1,7 +1,8 @@
 # VIT-AP Campus Navigator
 
-A structured, maintainable dataset for campus locations and services at **VIT‑AP**.  
-This repository/sheet pack is designed to power a campus directory, chatbot, website, or internal navigation tool with **consistent place IDs**, **room-level accuracy**, and **verifiable contact information**.
+A structured, maintainable dataset for campus locations and services at **VIT‑AP**.
+
+This repository is designed to power a campus directory, chatbot, website, or internal navigation tool with **consistent place IDs**, **room-level accuracy**, and **verifiable contact information**.
 
 > Scope note: This data pack focuses on **places, locations, hours, emergency contacts, and verified club emails**.
 
@@ -18,7 +19,7 @@ A normalized list of campus places (offices, services, venues, food courts, etc.
 - `aliases` for better search (e.g., “COE”, “Controller of Examinations”)
 
 ### 2) Operating hours
-A separate hours table keyed by `place_id` to support:
+Structured operating hours keyed by `place_id` to support:
 - “Open now?” checks
 - weekly schedules
 - easy updates without touching the master `places` list
@@ -30,36 +31,30 @@ A canonical list of start points such as Main Gate and key blocks/hostels for fu
 A dedicated table to store emergency/helpdesk contacts with clear ownership and update responsibility.
 
 ### 5) Official club allowlist
-A verified allowlist of **official club email IDs** (vitap.ac.in) mapped to club names. This helps prevent misinformation and ensures students can contact legitimate chapters/associations.
+A verified allowlist of **official club email IDs** (`@vitap.ac.in`) mapped to club names. This helps prevent misinformation and ensures students can contact legitimate chapters/associations.
 
 ---
 
-## Data model / Tabs (recommended structure)
+## Data format
 
-Maintain the dataset as an Excel/Google Sheets workbook with the following tabs:
+The **source of truth is version-controlled JSON** in this repository (see `data/`).
 
-1. **`places`**  
-2. **`place_hours`**  
-3. **`start_points`**  
-4. **`emergency_contacts`**  
-5. **`club_allowlist`**
-
-Each tab can also be exported as CSV for easy integration into apps/bots/websites.
+If needed, the JSON can be exported to CSV / Excel / Google Sheets for review and collaboration.
 
 ---
 
 ## Data quality rules
 
-1. **Never guess.**  
+1. **Never guess.**
    If a room/floor is uncertain, mark it explicitly as **TBD** in `notes`.
 
-2. **Prefer structured fields over text.**  
+2. **Prefer structured fields over text.**
    Put room/floor in `room`/`floor` columns—not in notes.
 
-3. **Aliases matter.**  
+3. **Aliases matter.**
    Add common abbreviations and alternate spellings to improve search.
 
-4. **Change management.**  
+4. **Change management.**
    Room changes and office relocations should be recorded immediately. If possible, keep dated backups or version control exports.
 
 ---
@@ -77,8 +72,3 @@ Typical usage patterns:
 - Display: show `block + floor + room + landmark`
 - Hours: join `places.place_id = place_hours.place_id`
 - Clubs: display verified contacts from `club_allowlist`
-
----
-
-## License / Ownership
-This dataset is intended for campus utility and internal/student support use.
