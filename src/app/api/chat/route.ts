@@ -79,12 +79,17 @@ export async function POST(req: Request) {
   if (intent === "open_now") {
     const open = isOpenNow(best.hours);
     const status =
-      open.status === "unknown" ? "I don't know the hours for this place." :
-      open.status === "open" ? "Yes — it should be open now (IST)." :
-      "No — it should be closed right now (IST).";
+      open.status === "unknown"
+        ? "Hours not added yet for this place."
+        : open.status === "open"
+          ? "Yes — it should be open now (IST)."
+          : "No — it should be closed right now (IST).";
+
+    const hoursLine =
+      best.hours ? formatHoursShort(best.hours) : "Add hours in data/places.json to enable open/closed checks.";
 
     const res: ChatResponse = {
-      reply: `${best.name}\n${status}\n${formatHoursShort(best.hours)}\nDetails: /places/${best.place_id}`,
+      reply: `${best.name}\n${status}\n${hoursLine}\nDetails: /places/${best.place_id}`,
       place_id: best.place_id,
     };
     return NextResponse.json(res);
@@ -94,11 +99,14 @@ export async function POST(req: Request) {
     const open = isOpenNow(best.hours);
     const nowLine =
       open.status === "unknown"
-        ? "Open now: unknown"
+        ? "Open now (IST): cannot determine (hours not added yet)"
         : `Open now (IST): ${open.status}`;
 
+    const hoursLine =
+      best.hours ? formatHoursShort(best.hours) : "Hours not added yet for this place.";
+
     const res: ChatResponse = {
-      reply: `${best.name}\n${nowLine}\n${formatHoursShort(best.hours)}\nDetails: /places/${best.place_id}`,
+      reply: `${best.name}\n${nowLine}\n${hoursLine}\nDetails: /places/${best.place_id}`,
       place_id: best.place_id,
     };
     return NextResponse.json(res);
