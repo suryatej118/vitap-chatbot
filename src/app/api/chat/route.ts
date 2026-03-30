@@ -16,7 +16,7 @@ type Intent = "where" | "open_now" | "hours" | "unknown";
 function detectIntent(message: string): Intent {
   const m = normalize(message);
 
-  if (m.includes("open now") || m.startsWith("is ") && m.includes(" open")) return "open_now";
+  if (m.includes("open now") || (m.startsWith("is ") && m.includes(" open"))) return "open_now";
   if (m.startsWith("hours") || m.includes(" hours") || m.includes("timings") || m.includes("timing"))
     return "hours";
   if (m.startsWith("where") || m.startsWith("find") || m.startsWith("show") || m.startsWith("locate"))
@@ -46,7 +46,9 @@ function extractPlaceQuery(message: string): string {
   ];
 
   for (const p of prefixes) {
-    if (m.startsWith(p)) return message.trim().slice(p.length).trim();
+    if (m.startsWith(p)) {
+      return message.trim().slice(p.length).replace(/[?!.]+$/g, "").trim();
+    }
   }
 
   // remove trailing question marks
