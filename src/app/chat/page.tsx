@@ -13,7 +13,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "bot",
-      content: "Hello! Ask me where a place is. (e.g., 'Where is checking?')"
+      content: "Hello! Ask me where a place is. (e.g., 'Find Library')"
     }
   ]);
   const [isLoading, setIsLoading] = useState(false);
