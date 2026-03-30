@@ -1,1 +1,1 @@
-["MAIN_GATE", "AB1", "AB2", "CB", "MH_1", "MH_2", "LH_1", "LH_2"]
+{"version":1,"startPoints":[{"start_id":"MAIN_GATE","name":"University Main Gate","description":""},{"start_id":"AB1","name":"AB1 (Academic Block-1)","description":""},{"start_id":"AB2","name":"AB2 (Academic Block-2)","description":""},{"start_id":"CB","name":"CB (Central Block)","description":""},{"start_id":"MH_1","name":"MH-1","description":""},{"start_id":"MH_2","name":"MH-2","description":""},{"start_id":"LH_1","name":"LH-1","description":""},{"start_id":"LH_2","name":"LH-2","description":""}]}
