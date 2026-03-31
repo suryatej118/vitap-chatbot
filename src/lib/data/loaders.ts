@@ -1,14 +1,43 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import type { DirectionsFile, PlacesFile, StartPointsFile, Place } from "./types";
+
+const repoRoot = process.cwd();
+const dataDir = path.join(repoRoot, "data");
+
+async function readJsonFile<T>(relPath: string): Promise<T> {
+  const abs = path.join(dataDir, relPath);
+  const raw = await readFile(abs, "utf8");
+  return JSON.parse(raw) as T;
+}
+
+export async function getPlacesFile(): Promise<PlacesFile> {
+  return readJsonFile<PlacesFile>("places.json");
+}
+
+export async function getPlaces(): Promise<Place[]> {
+  const { places } = await getPlacesFile();
+  return places;
+}
+
+export async function getPlaceById(placeId: string): Promise<Place | null> {
+  const places = await getPlaces();
+  return places.find((p) => p.place_id === placeId) ?? null;
+}
+
 export async function searchPlaces(query: string): Promise<Place[]> {
   const qRaw = query.trim().toLowerCase();
   if (!qRaw) return [];
 
-  const q = qRaw.replace(/[^\w\s-]/g, " ").trim();
+  const q = qRaw.replace(/[^
+\w\s-]/g, " ").trim();
   const qTokens = q.split(/\s+/).filter(Boolean);
 
   const places = await getPlaces();
 
   function normalizeCandidate(s: string) {
-    return s.toLowerCase().replace(/[^\w\s-]/g, " ").trim();
+    return s.toLowerCase().replace(/[^
+\w\s-]/g, " ").trim();
   }
 
   function tokens(s: string) {
@@ -31,10 +60,9 @@ export async function searchPlaces(query: string): Promise<Place[]> {
       if (cTokens.some((ct) => ct.startsWith(qt))) prefixHits += 1;
     }
 
-    // Require at least 1 hit to be considered
+    // Require at least 1 hit
     if (exactHits === 0 && prefixHits === 0) return 0;
 
-    // Strongly reward matching multiple tokens (office + coe)
     return exactHits * 120 + prefixHits * 60;
   }
 
@@ -51,4 +79,12 @@ export async function searchPlaces(query: string): Promise<Place[]> {
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score)
     .map((x) => x.p);
+}
+
+export async function getStartPointsFile(): Promise<StartPointsFile> {
+  return readJsonFile<StartPointsFile>("start-points.json");
+}
+
+export async function getDirectionsFile(): Promise<DirectionsFile> {
+  return readJsonFile<DirectionsFile>("directions.json");
 }
