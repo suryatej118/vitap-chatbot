@@ -80,7 +80,6 @@ export async function searchPlaces(query: string): Promise<Place[]> {
     .sort((a, b) => b.score - a.score)
     .map((x) => x.p);
 }
-
 export async function getStartPointsFile(): Promise<StartPointsFile> {
   return readJsonFile<StartPointsFile>("start-points.json");
 }
