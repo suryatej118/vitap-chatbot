@@ -2,56 +2,52 @@ export async function searchPlaces(query: string): Promise<Place[]> {
   const qRaw = query.trim().toLowerCase();
   if (!qRaw) return [];
 
-  const q = qRaw.replace(/[^\w\s-]/g, " ").trim(); // keep dash for IDs like MH-1
+  const q = qRaw.replace(/[^\w\s-]/g, " ").trim();
   const qTokens = q.split(/\s+/).filter(Boolean);
 
   const places = await getPlaces();
 
-  function scoreOne(p: Place): number {
-    const candidates = [p.name, ...p.aliases]
-      .map((s) => s.toLowerCase())
-      .map((s) => s.replace(/[^\w\s-]/g, " ").trim());
+  function normalizeCandidate(s: string) {
+    return s.toLowerCase().replace(/[^\w\s-]/g, " ").trim();
+  }
 
-    // Big boosts
-    if (candidates.some((c) => c === q)) return 1000;
+  function tokens(s: string) {
+    return normalizeCandidate(s).split(/\s+/).filter(Boolean);
+  }
 
-    // substring boosts
-    let best = 0;
-    for (const c of candidates) {
-      if (c.includes(q)) best = Math.max(best, 300);
+  function scoreCandidate(candidate: string): number {
+    const c = normalizeCandidate(candidate);
+    const cTokens = tokens(candidate);
 
-      // token overlap
-      const cTokens = c.split(/\s+/).filter(Boolean);
-      const cSet = new Set(cTokens);
+    if (c === q) return 1000;
+    if (c.includes(q)) return 400;
 
-      let overlap = 0;
-      for (const t of qTokens) {
-        if (cSet.has(t)) overlap += 1;
-      }
+    // Token / prefix scoring (order-independent)
+    let exactHits = 0;
+    let prefixHits = 0;
 
-      // prefix match (handles "coe" in "coe office")
-      let prefixHits = 0;
-      for (const t of qTokens) {
-        if (cTokens.some((ct) => ct.startsWith(t))) prefixHits += 1;
-      }
-
-      // combine
-      best = Math.max(best, overlap * 50 + prefixHits * 30);
-
-      // slight boost if query tokens all appear as prefixes
-      if (qTokens.length > 0 && prefixHits === qTokens.length) {
-        best = Math.max(best, 260);
-      }
+    for (const qt of qTokens) {
+      if (cTokens.includes(qt)) exactHits += 1;
+      if (cTokens.some((ct) => ct.startsWith(qt))) prefixHits += 1;
     }
 
-    // tiny category/verified boosts (optional)
-    if (p.is_verified) best += 2;
+    // Require at least 1 hit to be considered
+    if (exactHits === 0 && prefixHits === 0) return 0;
 
+    // Strongly reward matching multiple tokens (office + coe)
+    return exactHits * 120 + prefixHits * 60;
+  }
+
+  function scorePlace(p: Place): number {
+    const cands = [p.name, ...p.aliases];
+    let best = 0;
+    for (const c of cands) best = Math.max(best, scoreCandidate(c));
+    if (p.is_verified) best += 2;
     return best;
   }
 
   return places
-    .map((p) => ({ p, score: scoreOne(p) }))
+    .map((p) => ({ p, score: scorePlace(p) }))
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score)
     .map((x) => x.p);
