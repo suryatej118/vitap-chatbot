@@ -29,15 +29,13 @@ export async function searchPlaces(query: string): Promise<Place[]> {
   const qRaw = query.trim().toLowerCase();
   if (!qRaw) return [];
 
-  const q = qRaw.replace(/[^
-\w\s-]/g, " ").trim();
+  const q = qRaw.replace(/[^\w\s-]/g, " ").trim();
   const qTokens = q.split(/\s+/).filter(Boolean);
 
   const places = await getPlaces();
 
   function normalizeCandidate(s: string) {
-    return s.toLowerCase().replace(/[^
-\w\s-]/g, " ").trim();
+    return s.toLowerCase().replace(/[^\w\s-]/g, " ").trim();
   }
 
   function tokens(s: string) {
