@@ -1,7 +1,8 @@
-import { getPlaceById } from "@/lib/data/loaders";
+import { getPlaceById, getStartPointsFile } from "@/lib/data/loaders";
 import { formatPlaceLocation } from "@/lib/format/location";
 import { notFound } from "next/navigation";
 import { OpenNowBadge } from "@/components/OpenNowBadge";
+import { DirectionsCard } from "@/components/DirectionsCard";
 
 export default async function PlaceDetailPage(props: {
   params: Promise<{ placeId: string }>;
@@ -9,6 +10,8 @@ export default async function PlaceDetailPage(props: {
   const { placeId } = await props.params;
   const place = await getPlaceById(placeId);
   if (!place) return notFound();
+
+  const { startPoints } = await getStartPointsFile();
 
   return (
     <main className="space-y-3">
@@ -39,6 +42,8 @@ export default async function PlaceDetailPage(props: {
           <div className="text-sm">{place.notes}</div>
         </div>
       )}
+
+      <DirectionsCard placeId={place.place_id} placeName={place.name} startPoints={startPoints} />
     </main>
   );
 }
