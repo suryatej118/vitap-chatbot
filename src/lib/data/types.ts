@@ -29,9 +29,15 @@ export type Place = {
   is_verified: boolean;
 };
 
+export type Direction = {
+  start_id: string;
+  place_id: string;
+  steps: string[];
+};
+
 export type PlacesFile = { version: number; places: Place[] };
 
 export type StartPoint = { start_id: string; name: string; description: string };
 export type StartPointsFile = { version: number; startPoints: StartPoint[] };
 
-export type DirectionsFile = { version: number; directions: unknown[] };
+export type DirectionsFile = { version: number; directions: Direction[] };
