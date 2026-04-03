@@ -59,11 +59,11 @@ function extractPlaceQuery(message: string): string {
 
 function extractDirectionsParts(message: string): { from?: string; to: string } {
   const cleaned = message.trim().replace(/[?!.]+$/g, "");
-  const m = cleaned.toLowerCase();
+  const lower = cleaned.toLowerCase();
 
-  // from X to Y
-  const fromIdx = m.indexOf("from ");
-  const toIdx = m.indexOf(" to ");
+  // from X to Y (anywhere in sentence)
+  const fromIdx = lower.indexOf("from ");
+  const toIdx = lower.indexOf(" to ");
 
   if (fromIdx !== -1 && toIdx !== -1 && toIdx > fromIdx) {
     const from = cleaned.slice(fromIdx + 5, toIdx).trim();
@@ -71,13 +71,13 @@ function extractDirectionsParts(message: string): { from?: string; to: string } 
     return { from, to };
   }
 
-  // directions to Y
-  const toOnlyPrefixes = ["directions to ", "direction to ", "route to ", "how to get to "];
-  for (const p of toOnlyPrefixes) {
-    if (m.startsWith(p)) return { to: cleaned.slice(p.length).trim() };
+  // directions to Y / route to Y / how to get to Y
+  const prefixes = ["directions to ", "direction to ", "route to ", "how to get to "];
+  for (const p of prefixes) {
+    if (lower.startsWith(p)) return { to: cleaned.slice(p.length).trim() };
   }
 
-  // fallback: treat whole message as place query
+  // fallback
   return { to: extractPlaceQuery(message) };
 }
 
@@ -90,48 +90,45 @@ export async function POST(req: Request) {
   if (intent === "directions") {
     const parts = extractDirectionsParts(raw);
 
-    // resolve destination place
+    // Resolve destination place
     const toMatches = await searchPlaces(parts.to);
     if (toMatches.length === 0) {
-      const res: ChatResponse = { reply: `I couldn't find “${parts.to}”. Try another name.` };
-      return NextResponse.json(res);
+      return NextResponse.json({ reply: `I couldn't find “${parts.to}”. Try another name.` });
     }
     const dest = toMatches[0];
 
-    // resolve start_id
+    // Determine startId
     let startId = clientStartId;
 
-    // If user explicitly gave "from X", try to match it to a known start point id by simple heuristics:
+    // If user explicitly gave "from X", map it to a known start_id
     if (parts.from) {
-      const fromNorm = parts.from.trim().toLowerCase();
-      // quick mapping for common ones (extend later)
-      if (fromNorm.includes("cb")) startId = "CB";
-      else if (fromNorm.includes("ab1")) startId = "AB1";
-      else if (fromNorm.includes("ab2")) startId = "AB2";
-      else if (fromNorm.includes("main")) startId = "MAIN_GATE";
-      else if (fromNorm.includes("mh-1") || fromNorm.includes("mh 1")) startId = "MH_1";
-      else if (fromNorm.includes("mh-2") || fromNorm.includes("mh 2")) startId = "MH_2";
-      else if (fromNorm.includes("lh-1") || fromNorm.includes("lh 1")) startId = "LH_1";
-      else if (fromNorm.includes("lh-2") || fromNorm.includes("lh 2")) startId = "LH_2";
+      const f = parts.from.trim().toLowerCase();
+
+      if (f === "cb" || f.includes("central block")) startId = "CB";
+      else if (f === "ab1" || f.includes("academic block 1")) startId = "AB1";
+      else if (f === "ab2" || f.includes("academic block 2")) startId = "AB2";
+      else if (f.includes("main gate")) startId = "MAIN_GATE";
+      else if (f === "mh-1" || f === "mh 1" || f.includes("mh-1")) startId = "MH_1";
+      else if (f === "mh-2" || f === "mh 2" || f.includes("mh-2")) startId = "MH_2";
+      else if (f === "lh-1" || f === "lh 1" || f.includes("lh-1")) startId = "LH_1";
+      else if (f === "lh-2" || f === "lh 2" || f.includes("lh-2")) startId = "LH_2";
+      // otherwise: keep clientStartId as fallback
     }
 
     const dir = await findDirections(startId, dest.place_id);
 
     if (!dir) {
-      const res: ChatResponse = {
-        reply: `Directions not added yet.\nFrom: ${startId}\nTo: ${dest.name}\n(You can add it in data/directions.json)`,
+      return NextResponse.json({
+        reply: `Directions not added yet.\nFrom: ${startId}\nTo: ${dest.name}\n(Add it in data/directions.json)`,
         place_id: dest.place_id,
-      };
-      return NextResponse.json(res);
+      });
     }
 
     const steps = dir.steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
-
-    const res: ChatResponse = {
+    return NextResponse.json({
       reply: `Directions: ${startId} → ${dest.name}\n${steps}\nDetails: /places/${dest.place_id}`,
       place_id: dest.place_id,
-    };
-    return NextResponse.json(res);
+    });
   }
 
   const query = extractPlaceQuery(raw);
