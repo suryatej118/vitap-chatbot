@@ -28,11 +28,14 @@ export default function ChatPage() {
     setMessages(newMessages);
     setIsLoading(true);
 
+    const start_id =
+      typeof window !== "undefined" ? localStorage.getItem("vitap.startPointId") ?? "MAIN_GATE" : "MAIN_GATE";
+
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: query }),
+        body: JSON.stringify({ message: query, start_id }),
       });
 
       if (!res.ok) throw new Error("Network response was not ok");
