@@ -1,4 +1,14 @@
 {
   "version": 1,
-  "directions": []
+  "directions": [
+    {
+      "start_id": "CB",
+      "place_id": "COE_OFFICE",
+      "steps": [
+        "Exit CB (Central Block) and head towards AB1.",
+        "Enter AB1 and go to Floor 2.",
+        "Go to Room 229 — COE Office."
+      ]
+    }
+  ]
 }
