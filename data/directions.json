@@ -9,6 +9,32 @@
         "Enter AB1 and go to Floor 2.",
         "Go to Room 229 — COE Office."
       ]
-    }
+    },
+
+    { "start_id": "MAIN_GATE", "place_id": "UNIVERSITY_MAIN_GATE", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "AB1", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "AB2", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "CB", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "LIBRARY", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "COE_OFFICE", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "DEAN_OFFICE", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "LOST_AND_FOUND_STUDENT_RECORDS", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "ADMISSIONS_OFFICE", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "ACCOUNTS_OFFICE", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "TRANSPORT_HR_OFFICE", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "STUDENT_WELFARE", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "POST_OFFICE", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "BANK", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "MEDICAL_ROOM", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "CAFETERIA_AB1", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "ROCK_PLAZA", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "FOOD_STREET", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "SAC", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "VITRINA_GUEST_HOUSE", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "NEWTON_HALL", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "AUDITORIUM", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "ATM_AB1", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "ATM_AB2", "steps": [] },
+    { "start_id": "MAIN_GATE", "place_id": "ATM_CB", "steps": [] }
   ]
 }

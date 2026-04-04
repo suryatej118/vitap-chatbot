@@ -109,7 +109,7 @@ export default function ChatPage() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Where is..."
+          placeholder="Ask anything… (e.g., directions from main gate to COE office)"
           className="flex-1 rounded-lg border bg-white px-4 py-3 text-sm outline-none focus:border-black"
           disabled={isLoading}
         />
