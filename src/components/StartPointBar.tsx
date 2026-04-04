@@ -20,8 +20,14 @@ export function StartPointBar(props: { startPoints: StartPoint[] }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem(LS_KEY);
-    if (saved && byId.has(saved)) setStartId(saved);
+    function syncFromStorage() {
+      const saved = localStorage.getItem(LS_KEY);
+      if (saved && byId.has(saved)) setStartId(saved);
+    }
+
+    syncFromStorage();
+    window.addEventListener("vitap:startPointChanged", syncFromStorage);
+    return () => window.removeEventListener("vitap:startPointChanged", syncFromStorage);
   }, [byId]);
 
   const current = byId.get(startId) ?? byId.get(DEFAULT_ID);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Message = {
   role: "user" | "bot";
@@ -9,6 +9,8 @@ type Message = {
 };
 
 export default function ChatPage() {
+  const bottomRef = useRef<HTMLDivElement | null>(null);
+
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -17,6 +19,10 @@ export default function ChatPage() {
     }
   ]);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isLoading]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -41,6 +47,11 @@ export default function ChatPage() {
       if (!res.ok) throw new Error("Network response was not ok");
       
       const data = await res.json();
+      if (data?.start_id) {
+        localStorage.setItem("vitap.startPointId", data.start_id);
+        window.dispatchEvent(new Event("vitap:startPointChanged"));
+      }
+
       setMessages((prev) => [
         ...prev,
         { role: "bot", content: data.reply, place_id: data.place_id },
@@ -90,6 +101,7 @@ export default function ChatPage() {
             </div>
           </div>
         )}
+        <div ref={bottomRef} />
       </div>
 
       <form onSubmit={handleSubmit} className="flex gap-2">

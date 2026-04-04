@@ -6,7 +6,7 @@ import { formatHoursShort } from "@/lib/hours/formatHours";
 import { findDirections } from "@/lib/directions/findDirections";
 
 type ChatRequest = { message: string; start_id?: string };
-type ChatResponse = { reply: string; place_id?: string };
+type ChatResponse = { reply: string; place_id?: string; start_id?: string };
 
 function normalize(s: string) {
   return s.trim().toLowerCase();
@@ -121,6 +121,7 @@ export async function POST(req: Request) {
       return NextResponse.json({
         reply: `Directions not added yet.\nFrom: ${startId}\nTo: ${dest.name}\n(Add it in data/directions.json)`,
         place_id: dest.place_id,
+        start_id: startId,
       });
     }
 
@@ -128,6 +129,7 @@ export async function POST(req: Request) {
     return NextResponse.json({
       reply: `Directions: ${startId} → ${dest.name}\n${steps}\nDetails: /places/${dest.place_id}`,
       place_id: dest.place_id,
+      start_id: startId,
     });
   }
 
