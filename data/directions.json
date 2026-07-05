@@ -2,33 +2,467 @@
   "version": 1,
   "directions": [
     {
-      "start_id": "CB",
+      "start_id": "MAIN_GATE",
+      "place_id": "UNIVERSITY_MAIN_GATE",
+      "steps": [
+        "You are at the VIT-AP Stupa (Main Gate)."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "AB1",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn left and follow the main road towards AB1.",
+        "AB1 (Academic Block 1) will be on your left side."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "AB2",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn right and follow the main road towards AB2.",
+        "AB2 (Academic Block 2) will be on your right side."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "CB",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Follow the main road straight towards the center.",
+        "CB (Central Block) will be in front of you."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "LIBRARY",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn left and follow the main road towards AB1.",
+        "Enter AB1 and go to Floor 2.",
+        "Library is located on Floor 2 of AB1."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
       "place_id": "COE_OFFICE",
       "steps": [
-        "Exit CB (Central Block) and head towards AB1.",
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn left and follow the main road towards AB1.",
+        "Enter AB1 and go to Floor 2.",
+        "Go to Room 229 — COE Office (Controller of Examinations)."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "DEAN_OFFICE",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn right and follow the main road towards AB2.",
+        "Enter AB2 and go to the Ground Floor.",
+        "Go to Room G23 — Dean Office."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "ADMISSIONS_OFFICE",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn left and follow the main road towards AB1.",
+        "Enter AB1 and go to the Ground Floor.",
+        "Go to Room G31 — Admissions Office."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "ACCOUNTS_OFFICE",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Follow the main road straight towards CB.",
+        "Enter CB and go to the Ground Floor.",
+        "Go to Room G01 — Accounts Office."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "MEDICAL_ROOM",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn left and follow the main road towards AB1.",
+        "Enter AB1 and go to the Ground Floor.",
+        "Go to Room G21 — Medical Room (Health Center, 24/7)."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "CAFETERIA_AB1",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn left and follow the main road towards AB1.",
+        "Enter AB1 and go to the Ground Floor.",
+        "Go to Room G25 — Cafeteria."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "ROCK_PLAZA",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn right and follow the road towards AB2.",
+        "Continue on the same road.",
+        "Rock Plaza will be on your right side, near AB2."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "FOOD_STREET",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn right and follow the same road used to reach Rock Plaza.",
+        "Continue past Rock Plaza.",
+        "Food Street will be further ahead on your right side."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "SAC",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Move towards the Rock Plaza side of the campus.",
+        "SAC (Student Activity Centre) is located above Rock Plaza."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "VITRINA_GUEST_HOUSE",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Move towards AB2 and Rock Plaza.",
+        "VITRINA (Guest House) is beside Rock Plaza, opposite AB2."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "NEWTON_HALL",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn left towards AB1.",
+        "Enter AB1 and go up to Floor 4.",
+        "Navigate to Room 401 — Newton Hall."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "AUDITORIUM",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn right towards AB2.",
+        "Enter AB2 and go up to Floor 3.",
+        "You will find the Auditorium on Floor 3."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "ATM_AB1",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn left towards AB1.",
+        "Go to the Ground Floor of AB1.",
+        "Find the ATM near the right side of AB1."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "ATM_AB2",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Turn right towards AB2.",
+        "Go to the Ground Floor of AB2.",
+        "Find the ATM beside the Bank."
+      ]
+    },
+    {
+      "start_id": "MAIN_GATE",
+      "place_id": "ATM_CB",
+      "steps": [
+        "Stand at VIT-AP Stupa and enter the campus.",
+        "Follow the main road straight towards CB.",
+        "Go to the Ground Floor of CB.",
+        "Find the ATM near the right exit."
+      ]
+    },
+
+    {
+      "start_id": "AB1",
+      "place_id": "LIBRARY",
+      "steps": [
+        "You are inside AB1.",
+        "Go to Floor 2.",
+        "Library is located on Floor 2 of AB1."
+      ]
+    },
+    {
+      "start_id": "AB1",
+      "place_id": "COE_OFFICE",
+      "steps": [
+        "You are inside AB1.",
+        "Go to Floor 2.",
+        "Go to Room 229 — COE Office."
+      ]
+    },
+    {
+      "start_id": "AB1",
+      "place_id": "MEDICAL_ROOM",
+      "steps": [
+        "You are inside AB1.",
+        "Go to the Ground Floor.",
+        "Go to Room G21 — Medical Room."
+      ]
+    },
+    {
+      "start_id": "AB1",
+      "place_id": "CAFETERIA_AB1",
+      "steps": [
+        "You are inside AB1.",
+        "Go to the Ground Floor.",
+        "Go to Room G25 — Cafeteria."
+      ]
+    },
+    {
+      "start_id": "AB1",
+      "place_id": "ADMISSIONS_OFFICE",
+      "steps": [
+        "You are inside AB1.",
+        "Go to the Ground Floor.",
+        "Go to Room G31 — Admissions Office."
+      ]
+    },
+    {
+      "start_id": "AB1",
+      "place_id": "DEAN_OFFICE",
+      "steps": [
+        "You are inside AB1.",
+        "Exit AB1 and turn right towards AB2.",
+        "Enter AB2 and go to the Ground Floor.",
+        "Go to Room G23 — Dean Office."
+      ]
+    },
+    {
+      "start_id": "AB1",
+      "place_id": "ACCOUNTS_OFFICE",
+      "steps": [
+        "You are inside AB1.",
+        "Exit AB1 and head straight towards CB.",
+        "Enter CB and go to the Ground Floor.",
+        "Go to Room G01 — Accounts Office."
+      ]
+    },
+    {
+      "start_id": "AB1",
+      "place_id": "ROCK_PLAZA",
+      "steps": [
+        "You are inside AB1.",
+        "Exit AB1 and turn right towards AB2.",
+        "Continue on the same road.",
+        "Rock Plaza will be on your right side near AB2."
+      ]
+    },
+    {
+      "start_id": "AB1",
+      "place_id": "FOOD_STREET",
+      "steps": [
+        "You are inside AB1.",
+        "Exit AB1 and turn right towards AB2.",
+        "Continue past Rock Plaza on the same road.",
+        "Food Street will be further ahead on your right side."
+      ]
+    },
+
+    {
+      "start_id": "AB2",
+      "place_id": "DEAN_OFFICE",
+      "steps": [
+        "You are inside AB2.",
+        "Go to the Ground Floor.",
+        "Go to Room G23 — Dean Office."
+      ]
+    },
+    {
+      "start_id": "AB2",
+      "place_id": "LIBRARY",
+      "steps": [
+        "You are inside AB2.",
+        "Exit AB2 and turn left towards AB1.",
+        "Enter AB1 and go to Floor 2.",
+        "Library is located on Floor 2 of AB1."
+      ]
+    },
+    {
+      "start_id": "AB2",
+      "place_id": "COE_OFFICE",
+      "steps": [
+        "You are inside AB2.",
+        "Exit AB2 and turn left towards AB1.",
         "Enter AB1 and go to Floor 2.",
         "Go to Room 229 — COE Office."
       ]
     },
+    {
+      "start_id": "AB2",
+      "place_id": "CAFETERIA_AB1",
+      "steps": [
+        "You are inside AB2.",
+        "Exit AB2 and turn left towards AB1.",
+        "Enter AB1 and go to the Ground Floor.",
+        "Go to Room G25 — Cafeteria."
+      ]
+    },
+    {
+      "start_id": "AB2",
+      "place_id": "ADMISSIONS_OFFICE",
+      "steps": [
+        "You are inside AB2.",
+        "Exit AB2 and turn left towards AB1.",
+        "Enter AB1 and go to the Ground Floor.",
+        "Go to Room G31 — Admissions Office."
+      ]
+    },
+    {
+      "start_id": "AB2",
+      "place_id": "MEDICAL_ROOM",
+      "steps": [
+        "You are inside AB2.",
+        "Exit AB2 and turn left towards AB1.",
+        "Enter AB1 and go to the Ground Floor.",
+        "Go to Room G21 — Medical Room."
+      ]
+    },
+    {
+      "start_id": "AB2",
+      "place_id": "ACCOUNTS_OFFICE",
+      "steps": [
+        "You are inside AB2.",
+        "Exit AB2 and head straight towards CB.",
+        "Enter CB and go to the Ground Floor.",
+        "Go to Room G01 — Accounts Office."
+      ]
+    },
+    {
+      "start_id": "AB2",
+      "place_id": "ROCK_PLAZA",
+      "steps": [
+        "You are inside AB2.",
+        "Exit AB2 and continue on the same road.",
+        "Rock Plaza will be nearby on your side, before Food Street."
+      ]
+    },
+    {
+      "start_id": "AB2",
+      "place_id": "FOOD_STREET",
+      "steps": [
+        "You are inside AB2.",
+        "Exit AB2 and continue on the same road past Rock Plaza.",
+        "Food Street will be further ahead on your right side."
+      ]
+    },
 
-    { "start_id": "MAIN_GATE", "place_id": "UNIVERSITY_MAIN_GATE", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "AB1", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "AB2", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "CB", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "LIBRARY", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "COE_OFFICE", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "DEAN_OFFICE", "steps": [] },
+    {
+      "start_id": "CB",
+      "place_id": "COE_OFFICE",
+      "steps": [
+        "You are inside CB.",
+        "Exit CB and head towards AB1.",
+        "Enter AB1 and go to Floor 2.",
+        "Go to Room 229 — COE Office."
+      ]
+    },
+    {
+      "start_id": "CB",
+      "place_id": "LIBRARY",
+      "steps": [
+        "You are inside CB.",
+        "Exit CB and head towards AB1.",
+        "Enter AB1 and go to Floor 2.",
+        "Library is located on Floor 2 of AB1."
+      ]
+    },
+    {
+      "start_id": "CB",
+      "place_id": "ACCOUNTS_OFFICE",
+      "steps": [
+        "You are inside CB.",
+        "Go to the Ground Floor.",
+        "Go to Room G01 — Accounts Office."
+      ]
+    },
+    {
+      "start_id": "CB",
+      "place_id": "MEDICAL_ROOM",
+      "steps": [
+        "You are inside CB.",
+        "Exit CB and head towards AB1.",
+        "Enter AB1 and go to the Ground Floor.",
+        "Go to Room G21 — Medical Room."
+      ]
+    },
+    {
+      "start_id": "CB",
+      "place_id": "CAFETERIA_AB1",
+      "steps": [
+        "You are inside CB.",
+        "Exit CB and head towards AB1.",
+        "Enter AB1 and go to the Ground Floor.",
+        "Go to Room G25 — Cafeteria."
+      ]
+    },
+    {
+      "start_id": "CB",
+      "place_id": "DEAN_OFFICE",
+      "steps": [
+        "You are inside CB.",
+        "Exit CB and turn right towards AB2.",
+        "Enter AB2 and go to the Ground Floor.",
+        "Go to Room G23 — Dean Office."
+      ]
+    },
+    {
+      "start_id": "CB",
+      "place_id": "ADMISSIONS_OFFICE",
+      "steps": [
+        "You are inside CB.",
+        "Exit CB and head towards AB1.",
+        "Enter AB1 and go to the Ground Floor.",
+        "Go to Room G31 — Admissions Office."
+      ]
+    },
+    {
+      "start_id": "CB",
+      "place_id": "ROCK_PLAZA",
+      "steps": [
+        "You are inside CB.",
+        "Exit CB and turn right towards AB2.",
+        "Continue on the same road.",
+        "Rock Plaza will be on your right side near AB2."
+      ]
+    },
+    {
+      "start_id": "CB",
+      "place_id": "FOOD_STREET",
+      "steps": [
+        "You are inside CB.",
+        "Exit CB and turn right towards AB2.",
+        "Continue on the same road past Rock Plaza.",
+        "Food Street will be further ahead on your right side."
+      ]
+    },
+
     { "start_id": "MAIN_GATE", "place_id": "LOST_AND_FOUND_STUDENT_RECORDS", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "ADMISSIONS_OFFICE", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "ACCOUNTS_OFFICE", "steps": [] },
     { "start_id": "MAIN_GATE", "place_id": "TRANSPORT_HR_OFFICE", "steps": [] },
     { "start_id": "MAIN_GATE", "place_id": "STUDENT_WELFARE", "steps": [] },
     { "start_id": "MAIN_GATE", "place_id": "POST_OFFICE", "steps": [] },
     { "start_id": "MAIN_GATE", "place_id": "BANK", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "MEDICAL_ROOM", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "CAFETERIA_AB1", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "ROCK_PLAZA", "steps": [] },
-    { "start_id": "MAIN_GATE", "place_id": "FOOD_STREET", "steps": [] },
     { "start_id": "MAIN_GATE", "place_id": "SAC", "steps": [] },
     { "start_id": "MAIN_GATE", "place_id": "VITRINA_GUEST_HOUSE", "steps": [] },
     { "start_id": "MAIN_GATE", "place_id": "NEWTON_HALL", "steps": [] },
